@@ -641,7 +641,7 @@ open class SkyFloatingLabelTextField: UITextField {
     open func titleHeight() -> CGFloat {
         if let titleLabel = self.titleLabel,
             let font = titleLabel.font {
-            return font.lineHeight
+            return font.lineHeight + 3
         }
         return 15.0
     }
