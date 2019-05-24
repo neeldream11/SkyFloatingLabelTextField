@@ -483,7 +483,7 @@ open class SkyFloatingLabelTextField: UITextField {
             self.tipErrorLabel.frame = frame
         }
         if animated {
-            let animationOptions:UIViewAnimationOptions = .curveEaseOut;
+            let animationOptions:UIView.AnimationOptions = .curveEaseOut;
             let duration = self.isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             
             UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
@@ -545,7 +545,7 @@ open class SkyFloatingLabelTextField: UITextField {
             self.titleLabel.frame = frame
         }
         if animated {
-            let animationOptions:UIViewAnimationOptions = .curveEaseOut;
+            let animationOptions:UIView.AnimationOptions = .curveEaseOut;
             let duration = self.isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             
             UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in

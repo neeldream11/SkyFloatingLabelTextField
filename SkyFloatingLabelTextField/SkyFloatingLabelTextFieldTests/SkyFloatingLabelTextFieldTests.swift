@@ -53,7 +53,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.placeholderColor = customColor
         
         // then
-        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: &fullRange) as? UIColor, customColor)
+        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: &fullRange) as? UIColor, customColor)
     }
     
     func test_whenSettingTitleColor_thenTitleLabelTextColorIsChangedToThisColor() {
@@ -140,7 +140,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.placeholderFont = customFont
         
         // then
-        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSFontAttributeName, at: 0, effectiveRange: &fullRange) as? UIFont, customFont)
+        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: &fullRange) as? UIFont, customFont)
     }
     
     func test_whenSettingSelectedLineColor_withTextfieldBeingSelected_thenLineViewBackgroundColorIsChangedToThisColor() {
@@ -326,7 +326,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 0.0)
         
         // when
-        floatingLabelTextField.setTitleVisible(true, animated: false, animationCompletion: { _ in
+        floatingLabelTextField.setTitleVisible(true, animated: false, animationCompletion: {
             // then
             XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 1.0)
             expectation.fulfill()
@@ -352,7 +352,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         let expectation = self.expectation(description: "")
         
         // when
-        floatingLabelTextField.setTitleVisible(false, animated: true, animationCompletion: { _ in
+        floatingLabelTextField.setTitleVisible(false, animated: true, animationCompletion: {
             // then
             XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 0.0)
             expectation.fulfill()
@@ -674,7 +674,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNotEqual(floatingLabelTextField.textHeight(), 0)
         
         // when
-        let size = floatingLabelTextField.intrinsicContentSize()
+        let size = floatingLabelTextField.intrinsicContentSize
         
         // then
         XCTAssertEqual(size.height, floatingLabelTextField.titleHeight() + floatingLabelTextField.textHeight())
@@ -687,7 +687,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
             if let error = error {
                 XCTFail("Call timed out \(error.localizedDescription)")
             }
-        })
+            } as? XCWaitCompletionHandler)
     }
     
     func delay(_ delay:Double, callback:@escaping ()->()) {
