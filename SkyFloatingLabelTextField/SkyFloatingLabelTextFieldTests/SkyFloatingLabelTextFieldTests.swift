@@ -47,7 +47,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         // given
         let customColor = UIColor.red
         floatingLabelTextField.placeholder = "test"
-        var fullRange:NSRange = NSMakeRange(0, floatingLabelTextField.placeholder!.characters.count)
+        var fullRange:NSRange = NSMakeRange(0, floatingLabelTextField.placeholder!.count)
         
         // when
         floatingLabelTextField.placeholderColor = customColor
@@ -134,7 +134,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         // given
         let customFont = UIFont()
         floatingLabelTextField.placeholder = "test"
-        var fullRange:NSRange = NSMakeRange(0, floatingLabelTextField.placeholder!.characters.count)
+        var fullRange:NSRange = NSMakeRange(0, floatingLabelTextField.placeholder!.count)
         
         // when
         floatingLabelTextField.placeholderFont = customFont
